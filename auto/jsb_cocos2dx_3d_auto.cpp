@@ -2058,6 +2058,31 @@ bool js_cocos2dx_3d_Animation3D_initWithFile(JSContext *cx, uint32_t argc, jsval
     JS_ReportError(cx, "js_cocos2dx_3d_Animation3D_initWithFile : wrong number of arguments: %d, was expecting %d", argc, 2);
     return false;
 }
+bool js_cocos2dx_3d_Animation3D_getBoneCurves(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    cocos2d::Animation3D* cobj = (cocos2d::Animation3D *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_3d_Animation3D_getBoneCurves : Invalid Native Object");
+    if (argc == 0) {
+        const std::unordered_map<std::basic_string<char>, cocos2d::Animation3D::Curve *, std::hash<string>, std::equal_to<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, cocos2d::Animation3D::Curve *> > >& ret = cobj->getBoneCurves();
+        jsval jsret = JSVAL_NULL;
+        do {
+            if (ret) {
+                js_proxy_t *jsProxy = js_get_or_create_proxy<std::unordered_map<std::basic_string<char>, cocos2d::Animation3D::Curve , std::hash<string>, std::equal_to<std::basic_string<char> >, std::allocator<std::pair<std::basic_string<char>, cocos2d::Animation3D::Curve > > >&>(cx, (std::unordered_map<std::basic_string<char>, cocos2d::Animation3D::Curve *, std::hash<string>, std::equal_to<std::basic_string<char> >, std::allocator<std::pair<std::basic_string<char>, cocos2d::Animation3D::Curve *> > >&)ret);
+                jsret = OBJECT_TO_JSVAL(jsProxy->obj);
+            } else {
+                jsret = JSVAL_NULL;
+            }
+        } while (0);
+        args.rval().set(jsret);
+        return true;
+    }
+
+    JS_ReportError(cx, "js_cocos2dx_3d_Animation3D_getBoneCurves : wrong number of arguments: %d, was expecting %d", argc, 0);
+    return false;
+}
 bool js_cocos2dx_3d_Animation3D_init(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -2227,6 +2252,7 @@ void js_register_cocos2dx_3d_Animation3D(JSContext *cx, JS::HandleObject global)
 
     static JSFunctionSpec funcs[] = {
         JS_FN("initWithFile", js_cocos2dx_3d_Animation3D_initWithFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("getBoneCurves", js_cocos2dx_3d_Animation3D_getBoneCurves, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("init", js_cocos2dx_3d_Animation3D_init, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getBoneCurveByName", js_cocos2dx_3d_Animation3D_getBoneCurveByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getDuration", js_cocos2dx_3d_Animation3D_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -2287,20 +2313,24 @@ bool js_cocos2dx_3d_Animate3D_getSpeed(JSContext *cx, uint32_t argc, jsval *vp)
     JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_getSpeed : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-bool js_cocos2dx_3d_Animate3D_removeFromMap(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_cocos2dx_3d_Animate3D_setHighQuality(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
     JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
     js_proxy_t *proxy = jsb_get_js_proxy(obj);
     cocos2d::Animate3D* cobj = (cocos2d::Animate3D *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_3d_Animate3D_removeFromMap : Invalid Native Object");
-    if (argc == 0) {
-        cobj->removeFromMap();
+    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_3d_Animate3D_setHighQuality : Invalid Native Object");
+    if (argc == 1) {
+        bool arg0;
+        arg0 = JS::ToBoolean(args.get(0));
+        JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_3d_Animate3D_setHighQuality : Error processing arguments");
+        cobj->setHighQuality(arg0);
         args.rval().setUndefined();
         return true;
     }
 
-    JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_removeFromMap : wrong number of arguments: %d, was expecting %d", argc, 0);
+    JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_setHighQuality : wrong number of arguments: %d, was expecting %d", argc, 1);
     return false;
 }
 bool js_cocos2dx_3d_Animate3D_setWeight(JSContext *cx, uint32_t argc, jsval *vp)
@@ -2321,6 +2351,22 @@ bool js_cocos2dx_3d_Animate3D_setWeight(JSContext *cx, uint32_t argc, jsval *vp)
     }
 
     JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_setWeight : wrong number of arguments: %d, was expecting %d", argc, 1);
+    return false;
+}
+bool js_cocos2dx_3d_Animate3D_removeFromMap(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    cocos2d::Animate3D* cobj = (cocos2d::Animate3D *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_3d_Animate3D_removeFromMap : Invalid Native Object");
+    if (argc == 0) {
+        cobj->removeFromMap();
+        args.rval().setUndefined();
+        return true;
+    }
+
+    JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_removeFromMap : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
 bool js_cocos2dx_3d_Animate3D_initWithFrames(JSContext *cx, uint32_t argc, jsval *vp)
@@ -2454,6 +2500,24 @@ bool js_cocos2dx_3d_Animate3D_init(JSContext *cx, uint32_t argc, jsval *vp)
     } while(0);
 
     JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_init : wrong number of arguments");
+    return false;
+}
+bool js_cocos2dx_3d_Animate3D_isHighQuality(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
+    js_proxy_t *proxy = jsb_get_js_proxy(obj);
+    cocos2d::Animate3D* cobj = (cocos2d::Animate3D *)(proxy ? proxy->ptr : NULL);
+    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_3d_Animate3D_isHighQuality : Invalid Native Object");
+    if (argc == 0) {
+        bool ret = cobj->isHighQuality();
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+
+    JS_ReportError(cx, "js_cocos2dx_3d_Animate3D_isHighQuality : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
 bool js_cocos2dx_3d_Animate3D_setOriginInterval(JSContext *cx, uint32_t argc, jsval *vp)
@@ -2713,12 +2777,14 @@ void js_register_cocos2dx_3d_Animate3D(JSContext *cx, JS::HandleObject global) {
 
     static JSFunctionSpec funcs[] = {
         JS_FN("getSpeed", js_cocos2dx_3d_Animate3D_getSpeed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("removeFromMap", js_cocos2dx_3d_Animate3D_removeFromMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("setHighQuality", js_cocos2dx_3d_Animate3D_setHighQuality, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setWeight", js_cocos2dx_3d_Animate3D_setWeight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("removeFromMap", js_cocos2dx_3d_Animate3D_removeFromMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("initWithFrames", js_cocos2dx_3d_Animate3D_initWithFrames, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getOriginInterval", js_cocos2dx_3d_Animate3D_getOriginInterval, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setSpeed", js_cocos2dx_3d_Animate3D_setSpeed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("init", js_cocos2dx_3d_Animate3D_init, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("isHighQuality", js_cocos2dx_3d_Animate3D_isHighQuality, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("setOriginInterval", js_cocos2dx_3d_Animate3D_setOriginInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getWeight", js_cocos2dx_3d_Animate3D_getWeight, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END

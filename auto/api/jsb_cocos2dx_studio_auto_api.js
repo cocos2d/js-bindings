@@ -405,7 +405,7 @@ str
 
 /**
  * @method getMovementCount
- * @return {long}
+ * @return {int}
  */
 getMovementCount : function (
 )
@@ -1776,7 +1776,7 @@ bool
 
 /**
  * @method getMovementCount
- * @return {long}
+ * @return {int}
  */
 getMovementCount : function (
 )
@@ -3027,6 +3027,16 @@ clone : function (
 },
 
 /**
+ * @method setTweenType
+ * @param {cc.tweenfunc::TweenType} arg0
+ */
+setTweenType : function (
+tweentype 
+)
+{
+},
+
+/**
  * @method setNode
  * @param {cc.Node} arg0
  */
@@ -3054,6 +3064,36 @@ isEnterWhenPassed : function (
 )
 {
     return false;
+},
+
+/**
+ * @method getTweenType
+ * @return {cc.tweenfunc::TweenType}
+ */
+getTweenType : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method getEasingParams
+ * @return {Array}
+ */
+getEasingParams : function (
+)
+{
+    return new Array();
+},
+
+/**
+ * @method setEasingParams
+ * @param {Array} arg0
+ */
+setEasingParams : function (
+array 
+)
+{
 },
 
 /**

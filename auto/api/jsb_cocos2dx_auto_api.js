@@ -9,92 +9,10 @@ var cc = cc || {};
 cc.Configuration = {
 
 /**
- * @method checkForGLExtension
- * @param {String} arg0
- * @return {bool}
- */
-checkForGLExtension : function (
-str 
-)
-{
-    return false;
-},
-
-/**
- * @method init
- * @return {bool}
- */
-init : function (
-)
-{
-    return false;
-},
-
-/**
- * @method supportsS3TC
- * @return {bool}
- */
-supportsS3TC : function (
-)
-{
-    return false;
-},
-
-/**
  * @method supportsPVRTC
  * @return {bool}
  */
 supportsPVRTC : function (
-)
-{
-    return false;
-},
-
-/**
- * @method supportsShareableVAO
- * @return {bool}
- */
-supportsShareableVAO : function (
-)
-{
-    return false;
-},
-
-/**
- * @method getInfo
- * @return {String}
- */
-getInfo : function (
-)
-{
-    return ;
-},
-
-/**
- * @method getMaxSupportSpotLightInShader
- * @return {int}
- */
-getMaxSupportSpotLightInShader : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method getMaxTextureUnits
- * @return {int}
- */
-getMaxTextureUnits : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method supportsNPOT
- * @return {bool}
- */
-supportsNPOT : function (
 )
 {
     return false;
@@ -111,10 +29,32 @@ getMaxModelviewStackDepth : function (
 },
 
 /**
- * @method supportsDiscardFramebuffer
+ * @method supportsShareableVAO
  * @return {bool}
  */
-supportsDiscardFramebuffer : function (
+supportsShareableVAO : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method supportsBGRA8888
+ * @return {bool}
+ */
+supportsBGRA8888 : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method checkForGLExtension
+ * @param {String} arg0
+ * @return {bool}
+ */
+checkForGLExtension : function (
+str 
 )
 {
     return false;
@@ -131,6 +71,46 @@ supportsATITC : function (
 },
 
 /**
+ * @method supportsNPOT
+ * @return {bool}
+ */
+supportsNPOT : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method init
+ * @return {bool}
+ */
+init : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method getMaxSupportPointLightInShader
+ * @return {int}
+ */
+getMaxSupportPointLightInShader : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method getMaxTextureSize
+ * @return {int}
+ */
+getMaxTextureSize : function (
+)
+{
+    return 0;
+},
+
+/**
  * @method setValue
  * @param {String} arg0
  * @param {cc.Value} arg1
@@ -143,11 +123,13 @@ value
 },
 
 /**
- * @method gatherGPUInfo
+ * @method getMaxSupportSpotLightInShader
+ * @return {int}
  */
-gatherGPUInfo : function (
+getMaxSupportSpotLightInShader : function (
 )
 {
+    return 0;
 },
 
 /**
@@ -171,13 +153,13 @@ getMaxSupportDirLightInShader : function (
 },
 
 /**
- * @method getMaxSupportPointLightInShader
- * @return {int}
+ * @method isHighAnimate3DQuality
+ * @return {bool}
  */
-getMaxSupportPointLightInShader : function (
+isHighAnimate3DQuality : function (
 )
 {
-    return 0;
+    return false;
 },
 
 /**
@@ -188,6 +170,46 @@ loadConfigFile : function (
 str 
 )
 {
+},
+
+/**
+ * @method supportsDiscardFramebuffer
+ * @return {bool}
+ */
+supportsDiscardFramebuffer : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method supportsS3TC
+ * @return {bool}
+ */
+supportsS3TC : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method getInfo
+ * @return {String}
+ */
+getInfo : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method getMaxTextureUnits
+ * @return {int}
+ */
+getMaxTextureUnits : function (
+)
+{
+    return 0;
 },
 
 /**
@@ -205,23 +227,11 @@ value
 },
 
 /**
- * @method getMaxTextureSize
- * @return {int}
+ * @method gatherGPUInfo
  */
-getMaxTextureSize : function (
+gatherGPUInfo : function (
 )
 {
-    return 0;
-},
-
-/**
- * @method supportsBGRA8888
- * @return {bool}
- */
-supportsBGRA8888 : function (
-)
-{
-    return false;
 },
 
 /**
@@ -1399,7 +1409,7 @@ getAnchorPoint : function (
 
 /**
  * @method getNumberOfRunningActions
- * @return {long}
+ * @return {int}
  */
 getNumberOfRunningActions : function (
 )
@@ -1427,7 +1437,7 @@ isVisible : function (
 
 /**
  * @method getChildrenCount
- * @return {long}
+ * @return {int}
  */
 getChildrenCount : function (
 )
@@ -6772,7 +6782,7 @@ node
 /**
  * @method getNumberOfRunningActionsInTarget
  * @param {cc.Node} arg0
- * @return {long}
+ * @return {int}
  */
 getNumberOfRunningActionsInTarget : function (
 node 
@@ -10211,7 +10221,7 @@ mat4
 
 /**
  * @method getUniformCount
- * @return {long}
+ * @return {int}
  */
 getUniformCount : function (
 )
@@ -10265,7 +10275,7 @@ int
 
 /**
  * @method getVertexAttribCount
- * @return {long}
+ * @return {int}
  */
 getVertexAttribCount : function (
 )
@@ -10458,7 +10468,7 @@ getBlendFunc : function (
 
 /**
  * @method getQuadsToDraw
- * @return {long}
+ * @return {int}
  */
 getQuadsToDraw : function (
 )
@@ -10496,10 +10506,10 @@ int
 
 /**
  * @method setQuadsToDraw
- * @param {long} arg0
+ * @param {int} arg0
  */
 setQuadsToDraw : function (
-long 
+int 
 )
 {
 },
@@ -11335,12 +11345,12 @@ bool
 /**
  * @method initWithTexture
  * @param {cc.Texture2D} arg0
- * @param {long} arg1
+ * @param {int} arg1
  * @return {bool}
  */
 initWithTexture : function (
 texture2d, 
-long 
+int 
 )
 {
     return false;
@@ -11359,7 +11369,7 @@ getBlendFunc : function (
 /**
  * @method lowestAtlasIndexInChild
  * @param {cc.Sprite} arg0
- * @return {long}
+ * @return {int}
  */
 lowestAtlasIndexInChild : function (
 sprite 
@@ -11372,7 +11382,7 @@ sprite
  * @method atlasIndexForChild
  * @param {cc.Sprite} arg0
  * @param {int} arg1
- * @return {long}
+ * @return {int}
  */
 atlasIndexForChild : function (
 sprite, 
@@ -11395,12 +11405,12 @@ textureatlas
 /**
  * @method initWithFile
  * @param {String} arg0
- * @param {long} arg1
+ * @param {int} arg1
  * @return {bool}
  */
 initWithFile : function (
 str, 
-long 
+int 
 )
 {
     return false;
@@ -11437,11 +11447,11 @@ getTextureAtlas : function (
 /**
  * @method insertQuadFromSprite
  * @param {cc.Sprite} arg0
- * @param {long} arg1
+ * @param {int} arg1
  */
 insertQuadFromSprite : function (
 sprite, 
-long 
+int 
 )
 {
 },
@@ -11459,12 +11469,12 @@ texture2d
 /**
  * @method rebuildIndexInOrder
  * @param {cc.Sprite} arg0
- * @param {long} arg1
- * @return {long}
+ * @param {int} arg1
+ * @return {int}
  */
 rebuildIndexInOrder : function (
 sprite, 
-long 
+int 
 )
 {
     return 0;
@@ -11473,7 +11483,7 @@ long
 /**
  * @method highestAtlasIndexInChild
  * @param {cc.Sprite} arg0
- * @return {long}
+ * @return {int}
  */
 highestAtlasIndexInChild : function (
 sprite 
@@ -11484,11 +11494,11 @@ sprite
 
 /**
  * @method removeChildAtIndex
- * @param {long} arg0
+ * @param {int} arg0
  * @param {bool} arg1
  */
 removeChildAtIndex : function (
-long, 
+int, 
 bool 
 )
 {
@@ -11517,12 +11527,12 @@ blendfunc
 /**
  * @method create
  * @param {String} arg0
- * @param {long} arg1
+ * @param {int} arg1
  * @return {cc.SpriteBatchNode}
  */
 create : function (
 str, 
-long 
+int 
 )
 {
     return cc.SpriteBatchNode;
@@ -11531,12 +11541,12 @@ long
 /**
  * @method createWithTexture
  * @param {cc.Texture2D} arg0
- * @param {long} arg1
+ * @param {int} arg1
  * @return {cc.SpriteBatchNode}
  */
 createWithTexture : function (
 texture2d, 
-long 
+int 
 )
 {
     return cc.SpriteBatchNode;
@@ -11610,8 +11620,10 @@ getHeight : function (
 
 /**
  * @method disableEffect
- */
-disableEffect : function (
+* @param {cc.LabelEffect} labeleffect
+*/
+disableEffect : function(
+labeleffect 
 )
 {
 },
@@ -12634,6 +12646,16 @@ actioninterval
 cc.TransitionScene = {
 
 /**
+ * @method getInScene
+ * @return {cc.Scene}
+ */
+getInScene : function (
+)
+{
+    return cc.Scene;
+},
+
+/**
  * @method finish
  */
 finish : function (
@@ -12653,6 +12675,16 @@ scene
 )
 {
     return false;
+},
+
+/**
+ * @method getDuration
+ * @return {float}
+ */
+getDuration : function (
+)
+{
+    return 0;
 },
 
 /**
@@ -15179,7 +15211,7 @@ spriteframe
 
 /**
  * @method getAtlasIndex
- * @return {long}
+ * @return {int}
  */
 getAtlasIndex : function (
 )
@@ -15210,11 +15242,11 @@ getBlendFunc : function (
 /**
  * @method setDisplayFrameWithAnimationName
  * @param {String} arg0
- * @param {long} arg1
+ * @param {int} arg1
  */
 setDisplayFrameWithAnimationName : function (
 str, 
-long 
+int 
 )
 {
 },
@@ -15251,10 +15283,10 @@ isDirty : function (
 
 /**
  * @method setAtlasIndex
- * @param {long} arg0
+ * @param {int} arg0
  */
 setAtlasIndex : function (
-long 
+int 
 )
 {
 },
@@ -15447,7 +15479,7 @@ hasPremultipliedAlpha : function (
 
 /**
  * @method getDataLen
- * @return {long}
+ * @return {int}
  */
 getDataLen : function (
 )
@@ -15584,7 +15616,7 @@ getMipmaps : function (
 /**
  * @method initWithRawData
  * @param {unsigned char} arg0
- * @param {long} arg1
+ * @param {int} arg1
  * @param {int} arg2
  * @param {int} arg3
  * @param {int} arg4
@@ -15593,7 +15625,7 @@ getMipmaps : function (
  */
 initWithRawData : function (
 char, 
-long, 
+int, 
 int, 
 int, 
 int, 

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A07A4FB5178387750073F6A7"
-               BuildableName = "libjsbindings iOS.a"
-               BlueprintName = "jsbindings iOS"
+               BuildableName = "liblibjscocos2d iOS.a"
+               BlueprintName = "libjscocos2d iOS"
                ReferencedContainer = "container:cocos2d_js_bindings.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A07A4FB5178387750073F6A7"
+            BuildableName = "liblibjscocos2d iOS.a"
+            BlueprintName = "libjscocos2d iOS"
+            ReferencedContainer = "container:cocos2d_js_bindings.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

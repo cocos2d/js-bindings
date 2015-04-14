@@ -72,7 +72,7 @@ int
 
 /**
  * @method getRootCount
- * @return {long}
+ * @return {int}
  */
 getRootCount : function (
 )
@@ -94,7 +94,7 @@ bone3d
 
 /**
  * @method getBoneCount
- * @return {long}
+ * @return {int}
  */
 getBoneCount : function (
 )
@@ -242,7 +242,7 @@ materialdatas
 
 /**
  * @method getMeshCount
- * @return {long}
+ * @return {int}
  */
 getMeshCount : function (
 )
@@ -657,7 +657,7 @@ isVisible : function (
 
 /**
  * @method getIndexCount
- * @return {long}
+ * @return {int}
  */
 getIndexCount : function (
 )
@@ -685,7 +685,7 @@ meshindexdata
 
 /**
  * @method getMeshVertexAttribCount
- * @return {long}
+ * @return {int}
  */
 getMeshVertexAttribCount : function (
 )
@@ -784,6 +784,16 @@ str
 },
 
 /**
+ * @method getBoneCurves
+ * @return {map_object}
+ */
+getBoneCurves : function (
+)
+{
+    return map_object;
+},
+
+/**
  * @method init
  * @param {cc.Animation3DData} arg0
  * @return {bool}
@@ -858,9 +868,11 @@ getSpeed : function (
 },
 
 /**
- * @method removeFromMap
+ * @method setHighQuality
+ * @param {bool} arg0
  */
-removeFromMap : function (
+setHighQuality : function (
+bool 
 )
 {
 },
@@ -871,6 +883,14 @@ removeFromMap : function (
  */
 setWeight : function (
 float 
+)
+{
+},
+
+/**
+ * @method removeFromMap
+ */
+removeFromMap : function (
 )
 {
 },
@@ -924,6 +944,16 @@ init : function(
 animation3d,
 float,
 float 
+)
+{
+    return false;
+},
+
+/**
+ * @method isHighQuality
+ * @return {bool}
+ */
+isHighQuality : function (
 )
 {
     return false;
