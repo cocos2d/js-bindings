@@ -4,8 +4,8 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
     <ItemsProjectGuid>{bea66276-51dd-4c53-92a8-f3d1fea50892}</ItemsProjectGuid>
-    <ItemsRootNamespace>libJSBinding</ItemsRootNamespace>
-    <ItemsProjectName>libJSBinding.Shared</ItemsProjectName>
+    <ItemsRootNamespace>libjscocos2d</ItemsRootNamespace>
+    <ItemsProjectName>libjscocos2d.Shared</ItemsProjectName>
     <CodeSharingProject>248F659F-DAC5-46E8-AC09-60EC9FC95053</CodeSharingProject>
   </PropertyGroup>
   <ItemDefinitionGroup>
