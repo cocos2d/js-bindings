@@ -784,16 +784,6 @@ str
 },
 
 /**
- * @method getBoneCurves
- * @return {map_object}
- */
-getBoneCurves : function (
-)
-{
-    return map_object;
-},
-
-/**
  * @method init
  * @param {cc.Animation3DData} arg0
  * @return {bool}
@@ -1132,6 +1122,132 @@ mode
  * @constructor
  */
 BillBoard : function (
+)
+{
+},
+
+};
+
+/**
+ * @class TextureCube
+ */
+jsb.TextureCube = {
+
+/**
+ * @method reloadTexture
+ * @return {bool}
+ */
+reloadTexture : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method create
+ * @param {String} arg0
+ * @param {String} arg1
+ * @param {String} arg2
+ * @param {String} arg3
+ * @param {String} arg4
+ * @param {String} arg5
+ * @return {cc.TextureCube}
+ */
+create : function (
+str, 
+str, 
+str, 
+str, 
+str, 
+str 
+)
+{
+    return cc.TextureCube;
+},
+
+/**
+ * @method TextureCube
+ * @constructor
+ */
+TextureCube : function (
+)
+{
+},
+
+};
+
+/**
+ * @class Skybox
+ */
+jsb.Skybox = {
+
+/**
+ * @method reload
+ */
+reload : function (
+)
+{
+},
+
+/**
+ * @method init
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @return {bool|bool}
+*/
+init : function(
+str,
+str,
+str,
+str,
+str,
+str 
+)
+{
+    return false;
+},
+
+/**
+ * @method setTexture
+ * @param {cc.TextureCube} arg0
+ */
+setTexture : function (
+texturecube 
+)
+{
+},
+
+/**
+ * @method create
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @param {String} str
+* @return {cc.Skybox|cc.Skybox}
+*/
+create : function(
+str,
+str,
+str,
+str,
+str,
+str 
+)
+{
+    return cc.Skybox;
+},
+
+/**
+ * @method Skybox
+ * @constructor
+ */
+Skybox : function (
 )
 {
 },

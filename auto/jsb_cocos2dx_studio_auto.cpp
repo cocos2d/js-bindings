@@ -8736,58 +8736,6 @@ bool js_cocos2dx_studio_Frame_getTweenType(JSContext *cx, uint32_t argc, jsval *
     JS_ReportError(cx, "js_cocos2dx_studio_Frame_getTweenType : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-bool js_cocos2dx_studio_Frame_getEasingParams(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    cocostudio::timeline::Frame* cobj = (cocostudio::timeline::Frame *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_studio_Frame_getEasingParams : Invalid Native Object");
-    if (argc == 0) {
-        const std::vector<float, std::allocator<float> >& ret = cobj->getEasingParams();
-        jsval jsret = JSVAL_NULL;
-        do {
-            if (ret) {
-                js_proxy_t *jsProxy = js_get_or_create_proxy<std::vector<float, std::allocator<float> >&>(cx, (std::vector<float, std::allocator<float> >&)ret);
-                jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-            } else {
-                jsret = JSVAL_NULL;
-            }
-        } while (0);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_cocos2dx_studio_Frame_getEasingParams : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_cocos2dx_studio_Frame_setEasingParams(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    cocostudio::timeline::Frame* cobj = (cocostudio::timeline::Frame *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_studio_Frame_setEasingParams : Invalid Native Object");
-    if (argc == 1) {
-        std::vector<float, std::allocator<float> > arg0;
-        do {
-            if (!args.get(0).isObject()) { ok = false; break; }
-            js_proxy_t *jsProxy;
-            JSObject *tmpObj = args.get(0).toObjectOrNull();
-            jsProxy = jsb_get_js_proxy(tmpObj);
-            arg0 = (const std::vector<float, std::allocator<float> >&)(jsProxy ? jsProxy->ptr : NULL);
-            JSB_PRECONDITION2( arg0, cx, false, "Invalid Native Object");
-        } while (0);
-        JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_studio_Frame_setEasingParams : Error processing arguments");
-        cobj->setEasingParams(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-
-    JS_ReportError(cx, "js_cocos2dx_studio_Frame_setEasingParams : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
 bool js_cocos2dx_studio_Frame_getFrameIndex(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -8965,8 +8913,6 @@ void js_register_cocos2dx_studio_Frame(JSContext *cx, JS::HandleObject global) {
         JS_FN("setTimeline", js_cocos2dx_studio_Frame_setTimeline, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("isEnterWhenPassed", js_cocos2dx_studio_Frame_isEnterWhenPassed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getTweenType", js_cocos2dx_studio_Frame_getTweenType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("getEasingParams", js_cocos2dx_studio_Frame_getEasingParams, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("setEasingParams", js_cocos2dx_studio_Frame_setEasingParams, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getFrameIndex", js_cocos2dx_studio_Frame_getFrameIndex, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("apply", js_cocos2dx_studio_Frame_apply, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("isTween", js_cocos2dx_studio_Frame_isTween, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

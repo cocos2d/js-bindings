@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A03F31E81781479B006731B9"
-               BuildableName = "liblibjscocos2d Mac.a"
+               BuildableName = "libjscocos2d Mac.a"
                BlueprintName = "libjscocos2d Mac"
                ReferencedContainer = "container:cocos2d_js_bindings.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A03F31E81781479B006731B9"
-            BuildableName = "liblibjscocos2d Mac.a"
+            BuildableName = "libjscocos2d Mac.a"
             BlueprintName = "libjscocos2d Mac"
             ReferencedContainer = "container:cocos2d_js_bindings.xcodeproj">
          </BuildableReference>

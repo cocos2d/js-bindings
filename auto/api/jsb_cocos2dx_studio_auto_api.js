@@ -3077,26 +3077,6 @@ getTweenType : function (
 },
 
 /**
- * @method getEasingParams
- * @return {Array}
- */
-getEasingParams : function (
-)
-{
-    return new Array();
-},
-
-/**
- * @method setEasingParams
- * @param {Array} arg0
- */
-setEasingParams : function (
-array 
-)
-{
-},
-
-/**
  * @method getFrameIndex
  * @return {unsigned int}
  */
