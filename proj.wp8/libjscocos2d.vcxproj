@@ -52,16 +52,16 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="..\..\cocos2d-x\cocos\2d\wp8_props\cocos2d_wp8.props" />
+    <Import Project="..\..\..\2d\wp8_props\cocos2d_wp8.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <Import Project="..\..\cocos2d-x\cocos\2d\wp8_props\cocos2d_wp8.props" />
+    <Import Project="..\..\..\2d\wp8_props\cocos2d_wp8.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="..\..\cocos2d-x\cocos\2d\wp8_props\cocos2d_wp8.props" />
+    <Import Project="..\..\..\2d\wp8_props\cocos2d_wp8.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
-    <Import Project="..\..\cocos2d-x\cocos\2d\wp8_props\cocos2d_wp8.props" />
+    <Import Project="..\..\..\2d\wp8_props\cocos2d_wp8.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -73,7 +73,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\base;$(EngineRoot)cocos\2d;$(EngineRoot)cocos\storage;$(EngineRoot)cocos\ui;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support\spine;$(EngineRoot)cocos\editor-support\cocosbuilder;$(EngineRoot)cocos\editor-support\cocostudio;$(EngineRoot)cocos\editor-support;$(EngineRoot)extensions;$(EngineRoot)\..\external\spidermonkey\include\wp8;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\spine;$(EngineRoot)external\chipmunk\include\chipmunk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\base;$(EngineRoot)cocos\2d;$(EngineRoot)cocos\storage;$(EngineRoot)cocos\ui;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support\spine;$(EngineRoot)cocos\editor-support\cocosbuilder;$(EngineRoot)cocos\editor-support\cocostudio;$(EngineRoot)cocos\editor-support;$(EngineRoot)extensions;$(EngineRoot)external\spidermonkey\include\wp8;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\spine;$(EngineRoot)external\chipmunk\include\chipmunk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WP8;_DEBUG;_LIB;COCOS2DXWIN32_EXPORTS;GL_GLEXT_PROTOTYPES;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CC_ENABLE_CHIPMUNK_INTEGRATION=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4267;4251;4244;4700;4083;4068;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ForcedIncludeFiles>
@@ -94,7 +94,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\base;$(EngineRoot)cocos\2d;$(EngineRoot)cocos\storage;$(EngineRoot)cocos\ui;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support\spine;$(EngineRoot)cocos\editor-support\cocosbuilder;$(EngineRoot)cocos\editor-support\cocostudio;$(EngineRoot)cocos\editor-support;$(EngineRoot)extensions;$(EngineRoot)\..\external\spidermonkey\include\wp8;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\spine;$(EngineRoot)external\chipmunk\include\chipmunk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos\base;$(EngineRoot)cocos\2d;$(EngineRoot)cocos\storage;$(EngineRoot)cocos\ui;$(EngineRoot)cocos\audio\include;$(EngineRoot)cocos\editor-support\spine;$(EngineRoot)cocos\editor-support\cocosbuilder;$(EngineRoot)cocos\editor-support\cocostudio;$(EngineRoot)cocos\editor-support;$(EngineRoot)extensions;$(EngineRoot)external\spidermonkey\include\wp8;$(ProjectDir)..\auto;$(ProjectDir)..\manual;$(ProjectDir)..\manual\cocostudio;$(ProjectDir)..\manual\spine;$(EngineRoot)external\chipmunk\include\chipmunk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WP8;_LIB;COCOS2DXWIN32_EXPORTS;GL_GLEXT_PROTOTYPES;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CC_ENABLE_CHIPMUNK_INTEGRATION=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ForcedIncludeFiles>
       </ForcedIncludeFiles>
@@ -244,7 +244,7 @@
     <ClInclude Include="..\manual\ui\jsb_cocos2dx_ui_manual.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\cocos2d-x\cocos\2d\libcocos2d_wp8.vcxproj">
+    <ProjectReference Include="..\..\..\2d\libcocos2d_wp8.vcxproj">
       <Project>{7c5dbc42-27f6-4978-aabc-02ba77e2a7f0}</Project>
     </ProjectReference>
   </ItemGroup>
