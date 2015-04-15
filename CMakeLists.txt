@@ -22,6 +22,8 @@
 # THE SOFTWARE.
 # ****************************************************************************/
 
+set(cocos_root ${Cocos2d-X_SOURCE_DIR})
+
 #platform
 if(WIN32) # Win32
   set(PLATFORM_FOLDER win32)
@@ -65,7 +67,7 @@ set(JSBINDING_SRC
   manual/spine/jsb_cocos2dx_spine_manual.cpp
   manual/ui/jsb_cocos2dx_ui_manual.cpp
   manual/3d/jsb_cocos2dx_3d_manual.cpp
-  ../cocos2d-x/cocos/storage/local-storage/LocalStorage.cpp
+  ${cocos_root}/cocos/storage/local-storage/LocalStorage.cpp
 )
 
 include_directories(
@@ -73,34 +75,34 @@ include_directories(
   manual
   manual/cocostudio
   manual/spine
-  ../external/spidermonkey/include/${PLATFORM_FOLDER}
-  ../cocos2d-x/cocos/base
-  ../cocos2d-x/cocos/2d
-  ../cocos2d-x/cocos/ui 
-  ../cocos2d-x/cocos/audio/include
-  ../cocos2d-x/cocos/storage
-  ../cocos2d-x/cocos/network
-  ../cocos2d-x/cocos/platform
-  ../cocos2d-x/extensions
-  ../cocos2d-x/external
-  ../cocos2d-x/cocos/editor-support
-  ../cocos2d-x/cocos/editor-support/spine
-  ../cocos2d-x/cocos/editor-support/cocosbuilder
-  ../cocos2d-x/cocos/editor-support/cocostudio
-  ../cocos2d-x/external/chipmunk/include/chipmunk
+  ${cocos_root}/external/spidermonkey/include/${PLATFORM_FOLDER}
+  ${cocos_root}/cocos/base
+  ${cocos_root}/cocos/2d
+  ${cocos_root}/cocos/ui 
+  ${cocos_root}/cocos/audio/include
+  ${cocos_root}/cocos/storage
+  ${cocos_root}/cocos/network
+  ${cocos_root}/cocos/platform
+  ${cocos_root}/extensions
+  ${cocos_root}/external
+  ${cocos_root}/cocos/editor-support
+  ${cocos_root}/cocos/editor-support/spine
+  ${cocos_root}/cocos/editor-support/cocosbuilder
+  ${cocos_root}/cocos/editor-support/cocostudio
+  ${cocos_root}/external/chipmunk/include/chipmunk
 )
 
-add_library(jsbindings STATIC
+add_library(jscocos2d STATIC
   ${JSBINDING_SRC}
 )
 
-target_link_libraries(jsbindings
+target_link_libraries(jscocos2d
   sqlite3
   js_static
   xxhash
 )
 
-set_target_properties(jsbindings
+set_target_properties(jscocos2d
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
