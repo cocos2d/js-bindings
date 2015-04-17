@@ -14830,6 +14830,16 @@ isFastMode : function (
 },
 
 /**
+ * @method getStroke
+ * @return {float}
+ */
+getStroke : function (
+)
+{
+    return 0;
+},
+
+/**
  * @method initWithFade
 * @param {float|float} float
 * @param {float|float} float
@@ -14855,6 +14865,16 @@ str
  */
 setFastMode : function (
 bool 
+)
+{
+},
+
+/**
+ * @method setStroke
+ * @param {float} arg0
+ */
+setStroke : function (
+float 
 )
 {
 },
