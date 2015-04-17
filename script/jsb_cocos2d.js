@@ -2724,17 +2724,6 @@ cc.Node.prototype._getBoundingBoxToCurrentNode = function (parentTransform) {
     return rect;
 };
 
-cc.Node.prototype._setNormalizedPosition = cc.Node.prototype.setNormalizedPosition;
-cc.Node.prototype.setNormalizedPosition = function (posOrX, y) {
-    if (y === undefined) {
-        this._setNormalizedPosition(posOrX);
-    }
-    else {
-        this._setNormalizedPosition(cc.p(posOrX, y));
-    }
-};
-
-
 //
 // cc.Layer bake/unbake/isBaked
 //
@@ -2818,6 +2807,60 @@ _p = cc.Label.prototype;
 _p.enableStroke = _p.enableOutline;
 _p.setBoundingWidth = _p.setWidth;
 _p.setBoundingHeight = _p.setHeight;
+
+
+//
+// cc.Scheduler scheduleCallbackForTarget
+//
+_p = cc.Scheduler.prototype;
+_p.scheduleCallbackForTarget = function (target, callback_fn, interval, repeat, delay, paused) {
+    this.schedule(callback_fn, target, interval, repeat, delay, paused, target.__instanceId + "");
+};
+_p.unscheduleCallbackForTarget = _p.unschedule;
+_p.unscheduleUpdateForTarget = _p.unscheduleUpdate;
+_p.unscheduleAllCallbacksForTarget = _p.unscheduleAllForTarget;
+
+
+//
+// cc.BlendFunc
+//
+/**
+ * Blend Function used for textures
+ * @Class cc.BlendFunc
+ * @Constructor
+ * @param {Number} src1 source blend function
+ * @param {Number} dst1 destination blend function
+ */
+cc.BlendFunc = function (src1, dst1) {
+    this.src = src1;
+    this.dst = dst1;
+};
+
+cc.BlendFunc._disable = function(){
+    return new cc.BlendFunc(cc.ONE, cc.ZERO);
+};
+cc.BlendFunc._alphaPremultiplied = function(){
+    return new cc.BlendFunc(cc.ONE, cc.ONE_MINUS_SRC_ALPHA);
+};
+cc.BlendFunc._alphaNonPremultiplied = function(){
+    return new cc.BlendFunc(cc.SRC_ALPHA, cc.ONE_MINUS_SRC_ALPHA);
+};
+cc.BlendFunc._additive = function(){
+    return new cc.BlendFunc(cc.SRC_ALPHA, cc.ONE);
+};
+
+/** @expose */
+cc.BlendFunc.DISABLE;
+cc.defineGetterSetter(cc.BlendFunc, "DISABLE", cc.BlendFunc._disable);
+/** @expose */
+cc.BlendFunc.ALPHA_PREMULTIPLIED;
+cc.defineGetterSetter(cc.BlendFunc, "ALPHA_PREMULTIPLIED", cc.BlendFunc._alphaPremultiplied);
+/** @expose */
+cc.BlendFunc.ALPHA_NON_PREMULTIPLIED;
+cc.defineGetterSetter(cc.BlendFunc, "ALPHA_NON_PREMULTIPLIED", cc.BlendFunc._alphaNonPremultiplied);
+/** @expose */
+cc.BlendFunc.ADDITIVE;
+cc.defineGetterSetter(cc.BlendFunc, "ADDITIVE", cc.BlendFunc._additive);
 
 
 //
